@@ -2,6 +2,7 @@
  * Imports
  */
 import assert from 'assert'
+import spy from 'spy'
 import {tree, element, render} from 'deku'
 import Button from '..'
 
@@ -20,25 +21,19 @@ describe('button', function() {
   })
 
   it('should have working onclick', function() {
+    const onClick = spy()
     const btn = create(<Button loading={false} onClick={onClick}>Test</Button>)
 
-    let called = false
-
     btn.click()
-    assert.equal(called, true)
-
-    function onClick() {
-      called = true
-    }
+    assert.equal(onClick.callCount, 1)
   })
 
   it('should disable click events while loading', function() {
+    const onClick = spy()
     const btn = create(<Button loading={true} onClick={onClick}>Test</Button>)
-    btn.click()
 
-    function onClick() {
-      throw new Error("This shouldn't happen!")
-    }
+    btn.click()
+    assert.equal(onClick.callCount, 0)
   })
 
   it('should work with spinners', function() {
