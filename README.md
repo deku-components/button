@@ -21,9 +21,11 @@ When `loading` is true, `onClick` events will not fire, and `spinning` will be `
 function render(component) {
   const {props, state} = component
 
-  <Button onClick={likeThing} loading={state.loading} spinner={CircularSpinner}>
-    Like Thing
-  </Button>
+  return (
+    <Button onClick={likeThing} loading={state.loading} spinner={CircularSpinner}>
+      Like Thing
+    </Button>
+  )
 
   function likeThing() {
     setState({loading: true})
