@@ -9,7 +9,8 @@ import style from 'style'
  */
 const defaultProps = {
   type: 'button',
-  style: {}
+  style: {},
+  spinner: null
 }
 
 /**
@@ -17,13 +18,16 @@ const defaultProps = {
  */
 function render(component) {
   const {props} = component
-  const {children, spinner, loading, onClick, type, style: styl} = props
+  const {spinner: Spinner, loading, onClick, type, style: styl} = props
   const css = style(styl)
+
+  let children = props.children
+  if(Spinner)
+    children = children.concat(<Spinner spinning={loading} />)
 
   return (
     <button type={type} onClick={handleClick} style={css}>
-      {props.children}
-      {spinner ? <spinner spinning={loading} /> : null}
+      {children}
     </button>
   )
 

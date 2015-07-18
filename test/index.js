@@ -41,6 +41,17 @@ describe('button', function() {
     }
   })
 
+  it('should work with spinners', function() {
+    const Spinner = {
+      render() {
+        return (<div class='spinner'></div>)
+      }
+    }
+
+    const btn = create(<Button loading={true} spinner={Spinner}>Test</Button>)
+    assert.ok(btn.querySelector('.spinner'))
+  })
+
   function create(component) {
     const app = render(tree(component), container)
     return container.querySelector('button')
