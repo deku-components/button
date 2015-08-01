@@ -47,6 +47,13 @@ describe('button', function() {
     assert.ok(btn.querySelector('.spinner'))
   })
 
+  it('should accept style properties', function() {
+    const btn = create(<Button width='40px'></Button>)
+    const style = btn.attributes.style.value
+    console.log('style', style)
+    assert.ok(style.indexOf('width:40px') !== -1)
+  })
+
   function create(component) {
     const app = render(tree(component), container)
     return container.querySelector('button')

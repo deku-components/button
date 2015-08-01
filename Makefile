@@ -8,6 +8,7 @@ MOCHIFY = ./node_modules/.bin/mochify
 #
 node_modules: package.json
 	@npm install -d
+	@touch node_modules
 
 test:
 	$(MOCHIFY) --transform babelify --phantomjs ./node_modules/.bin/phantomjs --ui bdd
