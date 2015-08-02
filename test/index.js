@@ -47,10 +47,9 @@ describe('button', function() {
     assert.ok(btn.querySelector('.spinner'))
   })
 
-  it('should accept style properties', function() {
-    const btn = create(<Button width='40px'></Button>)
+  it('should accept style property', function() {
+    const btn = create(<Button style={{width: '40px'}}></Button>)
     const style = btn.attributes.style.value
-    console.log('style', style)
     assert.ok(style.indexOf('width:40px') !== -1)
   })
 
