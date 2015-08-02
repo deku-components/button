@@ -3,24 +3,22 @@
  */
 import assert from 'assert'
 import spy from 'spy'
+import empty from 'component-empty'
 import {tree, element, render} from 'deku'
 import Button from '..'
 
 /**
  * Tests
  */
-describe('button', function() {
+describe('button', function () {
   let container
 
-  beforeEach(function() {
-    // Clear out the childNodes so deku doesn't warn us about it
-    while(document.body.hasChildNodes())
-      document.body.removeChild(document.body.lastChild)
-
+  beforeEach(function () {
+    empty(document.body)
     container = document.body.appendChild(document.createElement('div'))
   })
 
-  it('should have working onclick', function() {
+  it('should have working onclick', function () {
     const onClick = spy()
     const btn = create(<Button loading={false} onClick={onClick}>Test</Button>)
 
@@ -28,7 +26,7 @@ describe('button', function() {
     assert.equal(onClick.callCount, 1)
   })
 
-  it('should disable click events while loading', function() {
+  it('should disable click events while loading', function () {
     const onClick = spy()
     const btn = create(<Button loading={true} onClick={onClick}>Test</Button>)
 
@@ -36,9 +34,9 @@ describe('button', function() {
     assert.equal(onClick.callCount, 0)
   })
 
-  it('should work with spinners', function() {
+  it('should work with spinners', function () {
     const Spinner = {
-      render() {
+      render () {
         return (<div class='spinner'></div>)
       }
     }
@@ -47,14 +45,14 @@ describe('button', function() {
     assert.ok(btn.querySelector('.spinner'))
   })
 
-  it('should accept style property', function() {
-    const btn = create(<Button style={{width: '40px'}}></Button>)
+  it('should accept style property', function () {
+    const btn = create(<Button style={{width: '40px'}} />)
     const style = btn.attributes.style.value
     assert.ok(style.indexOf('width:40px') !== -1)
   })
 
-  function create(component) {
-    const app = render(tree(component), container)
+  function create (component) {
+    render(tree(component), container)
     return container.querySelector('button')
   }
 })

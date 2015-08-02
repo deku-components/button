@@ -1,5 +1,5 @@
 {
-  "name": "button",
+  "name": "@deku-scrubs/button",
   "version": "0.1.1",
   "description": "Simple deku button component",
   "main": "lib/index.js",
@@ -19,6 +19,16 @@
   "bugs": {
     "url": "https://github.com/deku-components/button/issues"
   },
+  "standard": {
+    "global": [
+      "describe",
+      "it",
+      "beforeEach",
+      "afterEach",
+      "before",
+      "after"
+    ]
+  },
   "homepage": "https://github.com/deku-components/button",
   "browserify": {
     "transform": [
@@ -32,7 +42,9 @@
     "object.omit": "^1.1.0"
   },
   "devDependencies": {
+    "@deku-scrubs/standard": "git://github.com/deku-scrubs/standard",
     "babelify": "^6.1.3",
+    "component-empty": "0.0.1",
     "deku": "^0.4.11",
     "mocha": "^2.2.5",
     "mochify": "^2.10.0",
