@@ -37,11 +37,9 @@
       ]
     ]
   },
-  "peerDependencies": {
-    "@deku-scrubs/style": "git://github.com/deku-scrubs/style"
-  },
   "dependencies": {
-    "object.omit": "^1.1.0"
+    "object.omit": "^1.1.0",
+    "@deku-scrubs/style": "git://github.com/deku-scrubs/style"
   },
   "devDependencies": {
     "@deku-scrubs/standard": "git://github.com/deku-scrubs/standard",
