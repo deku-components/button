@@ -5,7 +5,7 @@ import assert from 'assert'
 import spy from 'spy'
 import empty from 'component-empty'
 import {tree, render} from 'deku'
-import element from 'magic-virtual-element'
+import element from 'virtual-element'
 import Button from '..'
 
 /**

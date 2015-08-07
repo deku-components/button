@@ -39,8 +39,8 @@
   },
   "dependencies": {
     "@deku-scrubs/style": "git://github.com/deku-scrubs/style",
-    "magic-virtual-element": "^1.0.4",
-    "object.omit": "^1.1.0"
+    "object.omit": "^1.1.0",
+    "virtual-element": "^1.1.1"
   },
   "devDependencies": {
     "@deku-scrubs/standard": "git://github.com/deku-scrubs/standard",
