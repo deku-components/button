@@ -5,7 +5,7 @@ import assert from 'assert'
 import spy from 'spy'
 import empty from 'component-empty'
 import {tree, render} from 'deku'
-import element from 'virtual-element'
+import element from 'magic-virtual-element'
 import Button from '..'
 
 /**
@@ -49,7 +49,7 @@ describe('button', function () {
   it('should accept style property', function () {
     const btn = create(<Button style={{width: '40px'}} />)
     const style = btn.attributes.style.value
-    assert.ok(style.indexOf('width:40px') !== -1)
+    assert.ok(style.indexOf('width: 40px') !== -1)
   })
 
   function create (component) {
